@@ -10,71 +10,71 @@ testSuite =
     describe "About Strings"
         [ test "length returns the string length" <|
             \() ->
-                xNum
+                5
                     |> Expect.equal (String.length "Hello")
         , test "isEmpty tests for an empty string" <|
             \() ->
-                (String.isEmpty xString)
+                (String.isEmpty "")
                     |> Expect.true "Should be True"
         , test "reverse returns the reverse of a string" <|
             \() ->
-                xString
+                "olleH"
                     |> Expect.equal (String.reverse "Hello")
         , test "repeat returns the string repeated n times" <|
             \() ->
-                xString
+                "yaya"
                     |> Expect.equal (String.repeat 2 "ya")
         , test "the ++ infix function appends two strings" <|
             \() ->
-                xString
+                "ElmLang"
                     |> Expect.equal ("Elm" ++ "Lang")
         , test "append does the same thing" <|
             \() ->
-                xString
+                "ElmLang"
                     |> Expect.equal (String.append "Elm" "Lang")
         , test "concat appends a list of strings together" <|
             \() ->
-                xString
+                "ElmLangYay!"
                     |> Expect.equal (String.concat [ "Elm", "Lang", "Yay!" ])
         , test "join is like concat with a separator" <|
             \() ->
-                xString
+                "I'm,a,csv"
                     |> Expect.equal (String.join "," [ "I'm", "a", "csv" ])
         , test "split does the opposite" <|
             \() ->
-                xList
+                ["I'm", "a", "csv"]
                     |> Expect.equal (String.split "," "I'm,a,csv")
         , test "slice gets a substring" <|
             \() ->
-                xString
+                "a string"
                     |> Expect.equal (String.slice 4 12 "I'm a string")
         , test "negative indices start from the end" <|
             \() ->
-                xString
+                "a strin"
                     |> Expect.equal (String.slice -8 -1 "I'm a string")
         , test "left takes the first n characters of a string" <|
             \() ->
-                xString
+                "I'm"
                     |> Expect.equal (String.left 3 "I'm a string")
         , test "right takes the last n characters of a string" <|
             \() ->
-                xString
+                "ing"
                     |> Expect.equal (String.right 3 "I'm a string")
         , test "dropLeft drops the first n characters of a string" <|
             \() ->
-                xString
+                " a string"
                     |> Expect.equal (String.dropLeft 3 "I'm a string")
         , test "dropRight drops the last n characters of a string" <|
             \() ->
-                xString
+                "I'm a str"
                     |> Expect.equal (String.dropRight 3 "I'm a string")
         , test "contains looks for a substring" <|
             \() ->
-                xBool
+                True
                     |> Expect.equal (String.contains "string" "I'm a string")
         , test "indexes gives the location of each occurance" <|
             -- there are sooooo many string functions, just check them out
             \() ->
-                xList
+                [6]
                     |> Expect.equal (String.indexes "string" "I'm a string")
         ]

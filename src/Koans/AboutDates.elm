@@ -35,32 +35,32 @@ testSuite =
     describe "About Dates"
         [ test "year gets the year" <|
             \() ->
-                xNum
+                1970
                     |> Expect.equal (Date.year ourDate)
         , test "month gets the month" <|
             -- a type!
             \() ->
-                xMonth
+                Date.Jan
                     |> Expect.equal (Date.month ourDate)
         , test "day gets the day" <|
             \() ->
-                xNum
+                1
                     |> Expect.equal (Date.day ourDate)
         , test "dayOfWeek gets the day of the week" <|
             -- another type
             \() ->
-                xDay
+                Date.Thu
                     |> Expect.equal (Date.dayOfWeek ourDate)
         , test "hour gets the hour" <|
             \() ->
-                xString
+                "11"
                     |> Expect.equal (getField Date.hour parsedDate)
         , test "minute gets the minute" <|
             \() ->
-                xString
+                "30"
                     |> Expect.equal (getField Date.minute parsedDate)
         , test "second gets the second" <|
             \() ->
-                xString
+                "45"
                     |> Expect.equal (getField Date.second parsedDate)
         ]

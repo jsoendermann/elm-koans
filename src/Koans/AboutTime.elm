@@ -10,26 +10,26 @@ testSuite =
     describe "About Time"
         [ test "time is just a Float" <|
             \() ->
-                xTime
+                123.45
                     |> Expect.equal 123.45
         , test "a constant exists for hour" <|
             \() ->
-                xTime
+                60 * 60 * 1000
                     |> Expect.equal (1 * Time.hour)
         , test "and minute" <|
             \() ->
-                xTime
+                60 * 1000
                     |> Expect.equal (1 * Time.minute)
         , test "and second" <|
             \() ->
-                xTime
+                1000
                     |> Expect.equal (1 * Time.second)
         , test "and millisecond" <|
             \() ->
-                xTime
+                1
                     |> Expect.equal (1 * Time.millisecond)
         , test "helpers exist to convert back to Floats" <|
             \() ->
-                xNum
+                1
                     |> Expect.equal (Time.inSeconds 1000)
         ]

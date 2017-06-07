@@ -11,42 +11,42 @@ testSuite =
     describe "About Regex"
         [ test "contains tests for a regex match" <|
             \() ->
-                xBool
+                True
                     |> Expect.equal (Regex.contains (Regex.regex "[abc]+") "abcdefg")
         , test "escape will escape all special characters" <|
             \() ->
-                xString
+                "\\[abc\\]\\+"
                     |> Expect.equal (Regex.escape "[abc]+")
         , test "useful for matching strange strings" <|
             \() ->
-                xBool
+                True
                     |> Expect.equal (Regex.contains (Regex.regex (Regex.escape "[eir]+")) "w[eir]+d")
         , test "it's easy to make your regex case insensitive" <|
             \() ->
-                xBool
+                True
                     |> Expect.equal (Regex.contains (Regex.caseInsensitive (Regex.regex "abc")) "ABC")
         , test "find returns a list of all matches" <|
             \() ->
-                xNum
+                3
                     |> Expect.equal (Regex.find Regex.All (Regex.regex "abc") "abcabcabc" |> List.length)
         , test "matches contain the match" <|
             \() ->
-                xList
+                ["a","b","c"]
                     |> Expect.equal (Regex.find Regex.All (Regex.regex "[abc]") "axbxc" |> List.map (\match -> match.match))
         , test "matches contain the index" <|
             \() ->
-                xList
+                [0,2,4]
                     |> Expect.equal (Regex.find Regex.All (Regex.regex "[abc]") "axbxc" |> List.map (\match -> match.index))
         , test "matches may contain submatches" <|
             \() ->
-                xList
+                [[Just "a",Nothing], [Nothing,Just "b"]]
                     |> Expect.equal (Regex.find Regex.All (Regex.regex "(a)|(b)") "axbxc" |> List.map (\match -> match.submatches))
         , test "you may limit the number of matches" <|
             \() ->
-                xList
+                ["a", "b"]
                     |> Expect.equal (Regex.find (Regex.AtMost 2) (Regex.regex "[abc]") "axbxc" |> List.map (\match -> match.match))
         , test "replace can modify based on the match" <|
             \() ->
-                xString
+                "AxBxC"
                     |> Expect.equal (Regex.replace Regex.All (Regex.regex "[abc]") (\match -> String.toUpper match.match) "axbxc")
         ]

@@ -9,18 +9,18 @@ testSuite =
     describe "About Logical Operators"
         [ test "not negates a boolean" <|
             \() ->
-                (not xBool)
+                (not True)
                     |> Expect.equal False
         , test "&& is a logical AND" <|
             \() ->
-                (True && xBool)
+                (True && True)
                     |> Expect.true "Should be True"
         , test "|| is a logical OR" <|
             \() ->
-                (False || xBool)
+                (False || True)
                     |> Expect.true "Should be True"
         , test "xor is a logical XOR" <|
             \() ->
-                (False |> xor xBool)
+                (False |> xor True)
                     |> Expect.true "Should be True"
         ]

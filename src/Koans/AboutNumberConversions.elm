@@ -9,38 +9,38 @@ testSuite =
     describe "About Number Conversions"
         [ test "toFloat converts an int to a float" <|
             \() ->
-                xNum
+                5.0
                     |> Expect.equal (toFloat 5)
         , test "floor converts a float to an int (rounding down)" <|
             \() ->
-                xNum
+                3
                     |> Expect.equal (floor 3.6)
         , test "floor converts a float to an int (rounding down)" <|
             \() ->
-                xNum
+                -4
                     |> Expect.equal (floor -3.6)
         , test "ceiling converts a float to an int (rounding up)" <|
             \() ->
-                xNum
+                4
                     |> Expect.equal (ceiling 3.6)
         , test "ceiling converts a float to an int (rounding up)" <|
             \() ->
-                xNum
+                -3
                     |> Expect.equal (ceiling -3.6)
         , test "round converts a float to an int (rounding to the closest int)" <|
             \() ->
-                xNum
+                4
                     |> Expect.equal (round 3.6)
         , test "round converts a float to an int (rounding to the closest int)" <|
             \() ->
-                xNum
+                -4
                     |> Expect.equal (round -3.6)
         , test "truncate converts a float to an int (rounding towards 0)" <|
             \() ->
-                xNum
+                3
                     |> Expect.equal (truncate 3.6)
         , test "truncate converts a float to an int (rounding towards 0)" <|
             \() ->
-                xNum
+                -3
                     |> Expect.equal (truncate -3.6)
         ]
